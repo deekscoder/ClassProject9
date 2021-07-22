@@ -1,36 +1,38 @@
-var box;
+var btn_red;
+var btn_green;
+
+var r = 0;
+var g = 0;
+var b = 0;
 
 function setup() {
-  createCanvas(400,400);
-  box = createSprite(200,200,30,30);
+  createCanvas(400, 400);  
+
+  btn_red = createButton("RED");
+  btn_red.position(100,50);
+  btn_red.mousePressed(red_bg);
+
+  btn_green = createButton("GREEN");
+  btn_green.position(250,50);
+  btn_green.mousePressed(green_bg);
 
 }
 
-function draw() 
+function red_bg()
 {
-   background(30);
+  r=255;
+  g=0;
+  b=0;
+}
 
-  if (keyIsDown(RIGHT_ARROW)) 
-  {
-    box.position.x = box.position.x +5;
-  }
+function green_bg()
+{
+  r=0;
+  g=255;
+  b=0;
+}
 
-    if (keyIsDown(LEFT_ARROW)) 
-  {
-    box.position.x= box.position.x -5;
-    
-  }
- 
-    if (keyIsDown(UP_ARROW)) 
-  {
-    box.position.y = box.position.y - 5;
-   
-  }
-
-  if (keyIsDown(DOWN_ARROW)) 
-  {
-    box.position.y = box.position.y + 5;
-  }
-
-  drawSprites();
+function draw() {
+  background(r,g,b);
+  //drawsprites();
 }
